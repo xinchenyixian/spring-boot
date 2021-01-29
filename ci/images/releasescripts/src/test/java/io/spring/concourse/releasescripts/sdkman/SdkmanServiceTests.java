@@ -25,7 +25,6 @@ import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.client.MockRestServiceServer;
-import org.springframework.util.Base64Utils;
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
@@ -60,8 +59,8 @@ class SdkmanServiceTests {
 	void publishWhenMakeDefaultTrue() throws Exception {
 		setupExpectation("https://vendors.sdkman.io/release",
 				"{\"candidate\": \"springboot\", \"version\": \"1.2.3\", \"url\": \"https://repo.spring.io/simple/libs-release-local/org/springframework/boot/spring-boot-cli/1.2.3/spring-boot-cli-1.2.3-bin.zip\"}");
-		setupExpectation("https://vendors.sdkman.io/default",
-				"{\"candidate\": \"springboot\", \"version\": \"1.2.3\"}");
+		setupExpectation("https://vendors.sdkman.io/default", "{\"candidate\": \"springboot\", \"version\": \"1.2.3\"}",
+				HttpMethod.PUT);
 		setupExpectation("https://vendors.sdkman.io/announce/struct",
 				"{\"candidate\": \"springboot\", \"version\": \"1.2.3\", \"hashtag\": \"springboot\"}");
 		this.service.publish("1.2.3", true);
@@ -79,11 +78,13 @@ class SdkmanServiceTests {
 	}
 
 	private void setupExpectation(String url, String body) {
-		this.server.expect(requestTo(url)).andExpect(method(HttpMethod.POST)).andExpect(content().json(body))
-				.andExpect(header("Authorization",
-						"Basic " + Base64Utils.encodeToString(String
-								.format("%s:%s", this.properties.getConsumerKey(), this.properties.getConsumerToken())
-								.getBytes())))
+		setupExpectation(url, body, HttpMethod.POST);
+	}
+
+	private void setupExpectation(String url, String body, HttpMethod method) {
+		this.server.expect(requestTo(url)).andExpect(method(method)).andExpect(content().json(body))
+				.andExpect(header("Consumer-Key", "sdkman-consumer-key"))
+				.andExpect(header("Consumer-Token", "sdkman-consumer-token"))
 				.andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString())).andRespond(withSuccess());
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2020 the original author or authors.
+ * Copyright 2012-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,7 +43,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.data.jpa.EntityManagerFactoryDependsOnPostProcessor;
 import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration.FlywayDataSourceCondition;
 import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration.FlywayEntityManagerFactoryDependsOnPostProcessor;
 import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration.FlywayJdbcOperationsDependsOnPostProcessor;
@@ -53,6 +52,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.autoconfigure.jdbc.JdbcOperationsDependsOnPostProcessor;
 import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.NamedParameterJdbcOperationsDependsOnPostProcessor;
+import org.springframework.boot.autoconfigure.orm.jpa.EntityManagerFactoryDependsOnPostProcessor;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -231,10 +231,10 @@ public class FlywayAutoConfiguration {
 					.to((jdbcProperties) -> configuration.jdbcProperties(jdbcProperties));
 			// No method reference for compatibility with Flyway 6.x
 			map.from(properties.getOracleKerberosCacheFile()).whenNonNull()
-					.to((cacheFile) -> configuration.orackeKerberosCacheFile(cacheFile));
+					.to((cacheFile) -> configuration.oracleKerberosCacheFile(cacheFile));
 			// No method reference for compatibility with Flyway 6.x
 			map.from(properties.getOracleKerberosConfigFile()).whenNonNull()
-					.to((configFile) -> configuration.orackeKerberosConfigFile(configFile));
+					.to((configFile) -> configuration.oracleKerberosConfigFile(configFile));
 			// No method reference for compatibility with Flyway 6.x
 			map.from(properties.getOutputQueryResults()).whenNonNull()
 					.to((outputQueryResults) -> configuration.outputQueryResults(outputQueryResults));

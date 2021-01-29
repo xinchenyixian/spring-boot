@@ -37,10 +37,17 @@ public class PublishToSdkmanCommand implements Command {
 
 	private static final Logger logger = LoggerFactory.getLogger(PublishToSdkmanCommand.class);
 
+	private static final String PUBLISH_TO_SDKMAN_COMMAND = "publishToSdkman";
+
 	private final SdkmanService service;
 
 	public PublishToSdkmanCommand(SdkmanService service) {
 		this.service = service;
+	}
+
+	@Override
+	public String getName() {
+		return PUBLISH_TO_SDKMAN_COMMAND;
 	}
 
 	@Override
@@ -57,8 +64,7 @@ public class PublishToSdkmanCommand implements Command {
 		String version = nonOptionArgs.get(2);
 		boolean makeDefault = false;
 		if (nonOptionArgs.size() == 4) {
-			String releaseBranch = nonOptionArgs.get(3);
-			makeDefault = ("master".equals(releaseBranch));
+			makeDefault = Boolean.parseBoolean(nonOptionArgs.get(3));
 		}
 		this.service.publish(version, makeDefault);
 	}
