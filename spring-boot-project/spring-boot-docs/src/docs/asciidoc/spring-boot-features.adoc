@@ -195,7 +195,7 @@ The `SpringApplicationBuilder` lets you chain together multiple method calls and
 
 [source,java,indent=0]
 ----
-include::{code-examples}/builder/SpringApplicationBuilderExample.java[tag=hierarchy]
+include::{include-springbootfeatures}/springapplication/SpringApplicationBuilderExample.java[tag=*]
 ----
 
 NOTE: There are some restrictions when creating an `ApplicationContext` hierarchy.
@@ -436,7 +436,7 @@ This exit code can then be passed to `System.exit()` to return it as a status co
 
 [source,java,indent=0]
 ----
-include::{code-examples}/ExitCodeApplication.java[tag=example]
+include::{include-springbootfeatures}/springapplication/ExitCodeExample.java[tag=*]
 ----
 
 Also, the `ExitCodeGenerator` interface may be implemented by exceptions.
@@ -1489,9 +1489,10 @@ TIP: We recommend that, when possible, properties are stored in lower-case kebab
 
 [[boot-features-external-config-relaxed-binding-maps]]
 ===== Binding Maps
-When binding to `Map` properties, if the `key` contains anything other than lowercase alpha-numeric characters or `-`, you need to use the bracket notation so that the original value is preserved.
-If the key is not surrounded by `[]`, any characters that are not alpha-numeric or `-` are removed.
-For example, consider binding the following properties to a `Map`:
+When binding to `Map` properties you may need to use a special bracket notation so that the original `key` value is preserved.
+If the key is not surrounded by `[]`, any characters that are not alpha-numeric, `-` or `.` are removed.
+
+For example, consider binding the following properties to a `Map<String,String>`:
 
 
 [source,properties,indent=0,role="primary"]
@@ -1507,14 +1508,18 @@ For example, consider binding the following properties to a `Map`:
 ----
 	acme:
 	  map:
-	    "[/key1]": value1
-	    "[/key2]": value2
-	    "/key3": value3
+	    "[/key1]": "value1"
+	    "[/key2]": "value2"
+	    "/key3": "value3"
 ----
 
-The properties above will bind to a `Map` with `/key1`, `/key2` and `key3` as the keys in the map.
-
 NOTE: For YAML files, the brackets need to be surrounded by quotes for the keys to be parsed properly.
+
+The properties above will bind to a `Map` with `/key1`, `/key2` and `key3` as the keys in the map.
+The slash has been removed from `key3` because it wasn't surrounded by square brackets.
+
+You may also occasionally need to use the bracket notation if your `key` contains a `.` and you are binding to non-scalar value.
+For example, binding `a.b=c` to `Map<String, Object>` will return a Map with the entry `{"a"={"b"="c"}}` where as `[a.b]=c` will return a Map with the entry `{"a.b"="c"}`. 
 
 
 
@@ -1668,7 +1673,7 @@ You may want to rename your custom `ConversionService` if it is not required for
 
 
 [[boot-features-external-config-conversion-duration]]
-===== Converting durations
+===== Converting Durations
 Spring Boot has dedicated support for expressing durations.
 If you expose a `java.time.Duration` property, the following formats in application properties are available:
 
@@ -1680,7 +1685,7 @@ Consider the following example:
 
 [source,java,indent=0]
 ----
-include::{code-examples}/context/properties/bind/javabean/AppSystemProperties.java[tag=example]
+include::{include-springbootfeatures}/externalizedconfiguration/duration/javabeanbinding/AppSystemProperties.java[tag=*]
 ----
 
 To specify a session timeout of 30 seconds, `30`, `PT30S` and `30s` are all equivalent.
@@ -1703,7 +1708,7 @@ If you prefer to use constructor binding, the same properties can be exposed, as
 
 [source,java,indent=0]
 ----
-include::{code-examples}/context/properties/bind/constructor/AppSystemProperties.java[tag=example]
+include::{include-springbootfeatures}/externalizedconfiguration/duration/constructorbinding/AppSystemProperties.java[tag=*]
 ----
 
 
@@ -1744,7 +1749,7 @@ Consider the following example:
 
 [source,java,indent=0]
 ----
-include::{code-examples}/context/properties/bind/javabean/AppIoProperties.java[tag=example]
+include::{include-springbootfeatures}/externalizedconfiguration/datasize/javabeanbinding/AppIoProperties.java[tag=*]
 ----
 
 To specify a buffer size of 10 megabytes, `10` and `10MB` are equivalent.
@@ -1765,7 +1770,7 @@ If you prefer to use constructor binding, the same properties can be exposed, as
 
 [source,java,indent=0]
 ----
-include::{code-examples}/context/properties/bind/constructor/AppIoProperties.java[tag=example]
+include::{include-springbootfeatures}/externalizedconfiguration/datasize/constructorbinding/AppIoProperties.java[tag=*]
 ----
 
 TIP: If you are upgrading a `Long` property, make sure to define the unit (using `@DataSizeUnit`) if it isn't bytes.
@@ -2215,7 +2220,7 @@ Spring Boot includes the following pre-defined logging groups that can be used o
 
 
 
-[[boot-features-custom-log-configuration]]
+[[boot-features-log-shutdown-hook]]
 === Using a Log Shutdown Hook
 In order to release logging resources it is usually a good idea to stop the logging system when your application terminates.
 Unfortunately, there's no single way to do this that will work with all application types.
@@ -2565,6 +2570,16 @@ If you want to keep those Spring Boot MVC customizations and make more {spring-f
 If you want to provide custom instances of `RequestMappingHandlerMapping`, `RequestMappingHandlerAdapter`, or `ExceptionHandlerExceptionResolver`, and still keep the Spring Boot MVC customizations, you can declare a bean of type `WebMvcRegistrations` and use it to provide custom instances of those components.
 
 If you want to take complete control of Spring MVC, you can add your own `@Configuration` annotated with `@EnableWebMvc`, or alternatively add your own `@Configuration`-annotated `DelegatingWebMvcConfiguration` as described in the Javadoc of `@EnableWebMvc`.
+
+[NOTE]
+====
+Spring MVC uses a different `ConversionService` to the one used to convert values from your `application.properties` or `application.yaml` file.
+The means that `Period`, `Duration` and `DataSize` converters are not available and that `@DurationUnit` and `@DataSizeUnit` annotations will be ignored.
+
+If you want to customize the `ConversionService` used by Spring MVC, you can provide a `WebMvcConfigurer` bean with an `addFormatters` method.
+From this method you can register any converter that you like, or you can delegate to the static methods available on `ApplicationConversionService`.
+====
+
 
 
 [[boot-features-spring-mvc-message-converters]]
@@ -3500,7 +3515,7 @@ The following example shows how to customize `TomcatServletWebServerFactory` tha
 
 [source,java,indent=0,subs="verbatim,quotes,attributes"]
 ----
-include::{code-examples}/context/embedded/TomcatServerCustomizerExample.java[tag=configuration]
+include::{include-springbootfeatures}/webapplications/TomcatServerCustomizerExample.java[tag=*]
 ----
 
 
@@ -3754,7 +3769,7 @@ For example, you can customize your security configuration by adding something l
 
 [source,java,indent=0]
 ----
-include::{code-examples}/web/security/CustomWebFluxSecurityExample.java[tag=configuration]
+include::{include-springbootfeatures}/security/CustomWebFluxSecurityExample.java[tag=*]
 ----
 
 
@@ -4909,7 +4924,7 @@ To enable transaction management, the following bean must be defined in your con
 
 [source,java,indent=0]
 ----
-include::{code-examples}/neo4j/Neo4jReactiveTransactionManagerExample.java[tag=configuration]
+include::{include-springbootfeatures}/nosql/Neo4jReactiveTransactionManagerExample.java[tag=*]
 ----
 ====
 
@@ -5594,7 +5609,7 @@ The following example shows a customizer that configures a specific entry expira
 
 [source,java,indent=0]
 ----
-include::{code-examples}/cache/CouchbaseCacheManagerCustomizationExample.java[tag=configuration]
+include::{include-springbootfeatures}/nosql/CouchbaseCacheManagerCustomizationExample.java[tag=*]
 ----
 
 
@@ -5625,7 +5640,7 @@ The following example shows a customizer that configures a specific time to live
 
 [source,java,indent=0]
 ----
-include::{code-examples}/cache/RedisCacheManagerCustomizationExample.java[tag=configuration]
+include::{include-springbootfeatures}/nosql//RedisCacheManagerCustomizationExample.java[tag=*]
 ----
 
 
@@ -6193,7 +6208,7 @@ To use the factory bean, wire `StreamsBuilder` into your `@Bean` as shown in the
 
 [source,java,indent=0]
 ----
-include::{code-examples}/kafka/KafkaStreamsBeanExample.java[tag=configuration]
+include::{include-springbootfeatures}/messaging/KafkaStreamsBeanExample.java[tag=*]
 ----
 
 By default, the streams managed by the `StreamBuilder` object it creates are started automatically.
@@ -6348,7 +6363,7 @@ The following example shows a customizer that configures the use of a proxy for 
 
 [source,java,indent=0]
 ----
-include::{code-examples}/web/client/RestTemplateProxyCustomizationExample.java[tag=customizer]
+include::{include-springbootfeatures}/resttemplate/RestTemplateProxyCustomizationExample.java[tag=*]
 ----
 
 Finally, you can also create your own `RestTemplateBuilder` bean.
@@ -6357,7 +6372,7 @@ The following example exposes a `RestTemplateBuilder` with what Spring Boot woul
 
 [source,java,indent=0]
 ----
-include::{code-examples}/web/client/RestTemplateBuilderCustomizationExample.java[tag=customizer]
+include::{include-springbootfeatures}/resttemplate/RestTemplateBuilderCustomizationExample.java[tag=*]
 ----
 
 The most extreme (and rarely used) option is to create your own `RestTemplateBuilder` bean without using a configurer.
@@ -7010,7 +7025,7 @@ have `@SpringBootTest` inject them using the `args` attribute.
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/context/ApplicationArgumentsExampleTests.java[tag=example]
+include::{include-springbootfeatures}/testing/ApplicationArgumentsExampleTests.java[tag=*]
 ----
 
 
@@ -7022,7 +7037,7 @@ If you have web endpoints that you want to test against this mock environment, y
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/web/MockMvcExampleTests.java[tag=test-mock-mvc]
+include::{include-springbootfeatures}/testing/MockMvcExampleTests.java[tag=*]
 ----
 
 TIP: If you want to focus only on the web layer and not start a complete `ApplicationContext`, consider <<boot-features-testing-spring-boot-applications-testing-autoconfigured-mvc-tests,using `@WebMvcTest` instead>>.
@@ -7031,7 +7046,7 @@ Alternatively, you can configure a {spring-framework-docs}/testing.html#webtestc
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/web/MockWebTestClientExampleTests.java[tag=test-mock-web-test-client]
+include::{include-springbootfeatures}/testing/MockWebTestClientExampleTests.java[tag=*]
 ----
 
 [TIP]
@@ -7056,7 +7071,7 @@ For convenience, tests that need to make REST calls to the started server can ad
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/web/RandomPortWebTestClientExampleTests.java[tag=test-random-port]
+include::{include-springbootfeatures}/testing/RandomPortWebTestClientExampleTests.java[tag=*]
 ----
 
 This setup requires `spring-webflux` on the classpath.
@@ -7064,7 +7079,7 @@ If you can't or won't add webflux, Spring Boot also provides a `TestRestTemplate
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/web/RandomPortTestRestTemplateExampleTests.java[tag=test-random-port]
+include::{include-springbootfeatures}/testing/RandomPortTestRestTemplateExampleTests.java[tag=*]
 ----
 
 
@@ -7083,7 +7098,7 @@ If such test needs access to an `MBeanServer`, consider marking it dirty as well
 
 [source,java,indent=0]
 ----
-include::{test-examples}/jmx/SampleJmxTests.java[tag=test]
+include::{include-springbootfeatures}/testing/jmx/SampleJmxTests.java[tag=*]
 ----
 
 
@@ -7906,14 +7921,14 @@ You can inject it by using `@Autowired` and use it in your tests as you normally
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/autoconfigure/restdocs/webclient/UsersDocumentationTests.java[tag=source]
+include::{include-springbootfeatures}/testing/restdocs/webclient/UsersDocumentationTests.java[tag=*]
 ----
 
 If you require more control over Spring REST Docs configuration than offered by the attributes of `@AutoConfigureRestDocs`, you can use a `RestDocsWebTestClientConfigurationCustomizer` bean, as shown in the following example:
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/autoconfigure/restdocs/webclient/AdvancedConfigurationExample.java[tag=configuration]
+include::{include-springbootfeatures}/testing/restdocs/webclient/AdvancedConfigurationExample.java[tag=*]
 ----
 
 
@@ -7925,14 +7940,14 @@ You can inject it by using `@Autowired` and use it in your tests as you normally
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/autoconfigure/restdocs/restassured/UserDocumentationTests.java[tag=source]
+include::{include-springbootfeatures}/testing/restdocs/restassured/UserDocumentationTests.java[tag=*]
 ----
 
 If you require more control over Spring REST Docs configuration than offered by the attributes of `@AutoConfigureRestDocs`, a `RestDocsRestAssuredConfigurationCustomizer` bean can be used, as shown in the following example:
 
 [source,java,indent=0]
 ----
-include::{code-examples}/test/autoconfigure/restdocs/restassured/AdvancedConfigurationExample.java[tag=configuration]
+include::{include-springbootfeatures}/testing/restdocs/restassured/AdvancedConfigurationExample.java[tag=*]
 ----
 
 
@@ -8126,7 +8141,7 @@ To use add `@ExtendWith(OutputCaptureExtension.class)` and inject `CapturedOutpu
 
 [source,java,indent=0]
 ----
-include::{test-examples}/test/system/OutputCaptureTests.java[tag=test]
+include::{include-springbootfeatures}/testing/OutputCaptureTests.java[tag=*]
 ----
 
 
@@ -8171,7 +8186,7 @@ Any URLs that do not specify a host and port automatically connect to the embedd
 
 [source,java,indent=0]
 ----
-include::{test-examples}/web/client/SampleWebClientTests.java[tag=test]
+include::{include-springbootfeatures}/testing/webclient/SampleWebClientTests.java[tag=*]
 ----
 
 
@@ -8435,7 +8450,7 @@ The following example makes sure that `UserServiceAutoConfiguration` is always i
 
 [source,java,indent=0]
 ----
-include::{test-examples}/autoconfigure/UserServiceAutoConfigurationTests.java[tag=runner]
+include::{include-springbootfeatures}/testing/UserServiceAutoConfigurationTests.java[tag=runner]
 ----
 
 TIP: If multiple auto-configurations have to be defined, there is no need to order their declarations as they are invoked in the exact same order as when running the application.
@@ -8446,14 +8461,14 @@ Invoking `run` provides a callback context that can be used with `AssertJ`.
 
 [source,java,indent=0]
 ----
-include::{test-examples}/autoconfigure/UserServiceAutoConfigurationTests.java[tag=test-user-config]
+include::{include-springbootfeatures}/testing/UserServiceAutoConfigurationTests.java[tag=test-user-config]
 ----
 
 It is also possible to easily customize the `Environment`, as shown in the following example:
 
 [source,java,indent=0]
 ----
-include::{test-examples}/autoconfigure/UserServiceAutoConfigurationTests.java[tag=test-env]
+include::{include-springbootfeatures}/testing/UserServiceAutoConfigurationTests.java[tag=test-env]
 ----
 
 The runner can also be used to display the `ConditionEvaluationReport`.
@@ -8487,7 +8502,7 @@ In the following example, we assert that if `UserService` is not present, the au
 
 [source,java,indent=0]
 ----
-include::{test-examples}/autoconfigure/UserServiceAutoConfigurationTests.java[tag=test-classloader]
+include::{include-springbootfeatures}/testing/UserServiceAutoConfigurationTests.java[tag=test-classloader]
 ----
 
 
@@ -8868,8 +8883,10 @@ This layering is designed to separate code based on how likely it is to change b
 Library code is less likely to change between builds, so it is placed in its own layers to allow tooling to re-use the layers from cache.
 Application code is more likely to change between builds so it is isolated in a separate layer.
 
-For Maven, refer to the {spring-boot-maven-plugin-docs}#repackage-layers[packaging layered jars section] for more details on adding a layer index to the jar.
-For Gradle, refer to the {spring-boot-gradle-plugin-docs}#packaging-layered-jars[packaging layered jars section] of the Gradle plugin documentation.
+Spring Boot also supports layering for war files with the help of a `layers.idx`.
+
+For Maven, refer to the {spring-boot-maven-plugin-docs}#repackage-layers[packaging layered jar or war section] for more details on adding a layer index to the archive.
+For Gradle, refer to the {spring-boot-gradle-plugin-docs}#packaging-layered-archives[packaging layered jar or war section] of the Gradle plugin documentation.
 
 === Building Container Images
 Spring Boot applications can be containerized <<boot-features-container-images-docker,using Dockerfiles>>, or by <<boot-features-container-images-buildpacks,using Cloud Native Buildpacks to create docker compatible container images that you can run anywhere>>.
