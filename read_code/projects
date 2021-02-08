@@ -1,0 +1,194 @@
+D:\project\spring-boot>gradlew projects
+> Task :projects
+------------------------------------------------------------
+Root project 'spring-boot-build' - Spring Boot Build
+------------------------------------------------------------
+
+Root project 'spring-boot-build' - Spring Boot Build
++--- Project ':spring-boot-project'
+|    +--- Project ':spring-boot-project:spring-boot' - Spring Boot
+|    +--- Project ':spring-boot-project:spring-boot-actuator' - Spring Boot Actuator
+|    +--- Project ':spring-boot-project:spring-boot-actuator-autoconfigure' - Spring Boot Actuator AutoConfigure
+|    +--- Project ':spring-boot-project:spring-boot-autoconfigure' - Spring Boot AutoConfigure
+|    +--- Project ':spring-boot-project:spring-boot-cli' - Spring Boot CLI
+|    +--- Project ':spring-boot-project:spring-boot-dependencies' - Spring Boot Dependencies
+|    +--- Project ':spring-boot-project:spring-boot-devtools' - Spring Boot Developer Tools
+|    +--- Project ':spring-boot-project:spring-boot-docs' - Spring Boot Docs
+|    +--- Project ':spring-boot-project:spring-boot-parent' - Spring Boot Parent
+|    +--- Project ':spring-boot-project:spring-boot-properties-migrator' - Spring Boot Properties Migrator
+|    +--- Project ':spring-boot-project:spring-boot-starters'
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter' - Core starter, including auto-configuration support, logging and YAML
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-activemq' - Starter for JMS messaging using Apache ActiveMQ
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-actuator' - Starter for using Spring Boot's Actuator which provides production ready features to help you monitor and manage yo
+ur application
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-amqp' - Starter for using Spring AMQP and Rabbit MQ
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-aop' - Starter for aspect-oriented programming with Spring AOP and AspectJ
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-artemis' - Starter for JMS messaging using Apache Artemis
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-batch' - Starter for using Spring Batch
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-cache' - Starter for using Spring Framework's caching support
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-cassandra' - Starter for using Cassandra distributed database and Spring Data Cassandra
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-cassandra-reactive' - Starter for using Cassandra distributed database and Spring Data Cassandra Reactive
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-couchbase' - Starter for using Couchbase document-oriented database and Spring Data Couchbase
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-couchbase-reactive' - Starter for using Couchbase document-oriented database and Spring Data Couchbase Reactive
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-elasticsearch' - Starter for using Elasticsearch search and analytics engine and Spring Data Elasticsearch
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-jdbc' - Starter for using Spring Data JDBC
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-jpa' - Starter for using Spring Data JPA with Hibernate
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-ldap' - Starter for using Spring Data LDAP
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-mongodb' - Starter for using MongoDB document-oriented database and Spring Data MongoDB
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-mongodb-reactive' - Starter for using MongoDB document-oriented database and Spring Data MongoDB Reactive
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-neo4j' - Starter for using Neo4j graph database and Spring Data Neo4j
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-r2dbc' - Starter for using Spring Data R2DBC
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-redis' - Starter for using Redis key-value data store with Spring Data Redis and the Lettuce client
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-redis-reactive' - Starter for using Redis key-value data store with Spring Data Redis reactive and the Lettuce client
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-data-rest' - Starter for exposing Spring Data repositories over REST using Spring Data REST
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-freemarker' - Starter for building MVC web applications using FreeMarker views
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-groovy-templates' - Starter for building MVC web applications using Groovy Templates views
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-hateoas' - Starter for building hypermedia-based RESTful web application with Spring MVC and Spring HATEOAS
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-integration' - Starter for using Spring Integration
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-jdbc' - Starter for using JDBC with the HikariCP connection pool
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-jersey' - Starter for building RESTful web applications using JAX-RS and Jersey. An alternative to spring-boot-starter-web
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-jetty' - Starter for using Jetty as the embedded servlet container. An alternative to spring-boot-starter-tomcat
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-jooq' - Starter for using jOOQ to access SQL databases. An alternative to spring-boot-starter-data-jpa or spring-boot-starter-j
+dbc
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-json' - Starter for reading and writing json
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-jta-atomikos' - Starter for JTA transactions using Atomikos
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-log4j2' - Starter for using Log4j2 for logging. An alternative to spring-boot-starter-logging
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-logging' - Starter for logging using Logback. Default logging starter
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-mail' - Starter for using Java Mail and Spring Framework's email sending support
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-mustache' - Starter for building web applications using Mustache views
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-oauth2-client' - Starter for using Spring Security's OAuth2/OpenID Connect client features
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-oauth2-resource-server' - Starter for using Spring Security's OAuth2 resource server features
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-parent' - Parent pom providing dependency and plugin management for applications built with Maven
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-quartz' - Starter for using the Quartz scheduler
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-reactor-netty' - Starter for using Reactor Netty as the embedded reactive HTTP server.
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-rsocket' - Starter for building RSocket clients and servers
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-security' - Starter for using Spring Security
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-test' - Starter for testing Spring Boot applications with libraries including JUnit Jupiter, Hamcrest and Mockito
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-thymeleaf' - Starter for building MVC web applications using Thymeleaf views
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-tomcat' - Starter for using Tomcat as the embedded servlet container. Default servlet container starter used by spring-boot-sta
+rter-web
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-undertow' - Starter for using Undertow as the embedded servlet container. An alternative to spring-boot-starter-tomcat
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-validation' - Starter for using Java Bean Validation with Hibernate Validator
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-web' - Starter for building web, including RESTful, applications using Spring MVC. Uses Tomcat as the default embedded containe
+r
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-web-services' - Starter for using Spring Web Services
+|    |    +--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-webflux' - Starter for building WebFlux applications using Spring Framework's Reactive Web support
+|    |    \--- Project ':spring-boot-project:spring-boot-starters:spring-boot-starter-websocket' - Starter for building WebSocket applications using Spring Framework's WebSocket support
+|    +--- Project ':spring-boot-project:spring-boot-test' - Spring Boot Test
+|    +--- Project ':spring-boot-project:spring-boot-test-autoconfigure' - Spring Boot Test AutoConfigure
+|    \--- Project ':spring-boot-project:spring-boot-tools'
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-antlib' - Spring Boot Antlib
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-autoconfigure-processor' - Spring Boot AutoConfigure Annotation Processor
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-buildpack-platform' - Spring Boot Buildpack Platform
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-configuration-metadata' - Spring Boot Configuration Metadata
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-configuration-processor' - Spring Boot Configuration Annotation Processor
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-gradle-plugin' - Spring Boot Gradle Plugin
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-jarmode-layertools' - Spring Boot Layers Tools
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-loader' - Spring Boot Loader
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-loader-tools' - Spring Boot Loader Tools
+|         +--- Project ':spring-boot-project:spring-boot-tools:spring-boot-maven-plugin' - Spring Boot Maven Plugin
+|         \--- Project ':spring-boot-project:spring-boot-tools:spring-boot-test-support' - Spring Boot Testing Support
+\--- Project ':spring-boot-tests'
+     +--- Project ':spring-boot-tests:spring-boot-deployment-tests' - Spring Boot Deployment Tests
+     +--- Project ':spring-boot-tests:spring-boot-integration-tests'
+     |    +--- Project ':spring-boot-tests:spring-boot-integration-tests:spring-boot-configuration-processor-tests' - Spring Boot Configuration Processor Tests
+     |    +--- Project ':spring-boot-tests:spring-boot-integration-tests:spring-boot-launch-script-tests' - Spring Boot Launch Script Integration Tests
+     |    +--- Project ':spring-boot-tests:spring-boot-integration-tests:spring-boot-loader-tests' - Spring Boot Loader Integration Tests
+     |    \--- Project ':spring-boot-tests:spring-boot-integration-tests:spring-boot-server-tests' - Spring Boot Server Tests
+     \--- Project ':spring-boot-tests:spring-boot-smoke-tests'
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-activemq' - Spring Boot Actuator ActiveMQ smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-actuator' - Spring Boot Actuator smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-actuator-custom-security' - Spring Boot Actuator custom security smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-actuator-log4j2' - Spring Boot Actuator Log4j 2 smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-actuator-noweb' - Spring Boot Actuator non-web smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-actuator-ui' - Spring Boot Actuator UI smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-amqp' - Spring Boot AMQP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-animated-banner' - Spring Boot animated banner smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-ant' - Spring Boot Ant smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-aop' - Spring Boot AOP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-atmosphere' - Spring Boot Atmosphere smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-batch' - Spring Boot Batch smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-bootstrap-registry' - Spring Boot Bootstrap Registry smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-cache' - Spring Boot cache smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-couchbase' - Spring Boot Data Couchbase smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-elasticsearch' - Spring Boot Data Elasticsearch smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-jdbc' - Spring Boot Data JDBC smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-jpa' - Spring Boot Data JPA smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-ldap' - Spring Boot Data LDAP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-mongodb' - Spring Boot Data MongoDB smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-neo4j' - Spring Boot Data Neo4j smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-r2dbc' - Spring Boot Data R2DBC smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-r2dbc-flyway' - Spring Boot Data R2DBC with Flyway smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-r2dbc-liquibase' - Spring Boot Data R2DBC with Liquibase smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-redis' - Spring Boot Data Redis smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-data-rest' - Spring Boot Data REST smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-devtools' - Spring Boot DevTools smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-flyway' - Spring Boot Flyway smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-hateoas' - Spring Boot HATEOAS smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-hazelcast3' - Spring Boot Hazelcast 3 smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-hibernate52' - Spring Boot Hibernate 5.2 smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-integration' - Spring Boot Integration smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jersey' - Spring Boot Jersey smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jetty' - Spring Boot Jetty smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jetty-jsp' - Spring Boot Jetty JSP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jetty-ssl' - Spring Boot Jetty SSL smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jpa' - Spring Boot JPA smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jta-atomikos' - Spring Boot Atomikos JTA smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-jta-jndi'
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-junit-vintage' - Spring Boot JUnit Vintage smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-kafka' - Spring Boot Kafka smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-liquibase' - Spring Boot Liquibase smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-logback' - Spring Boot Logback smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-oauth2-client' - Spring Boot OAuth2 Client smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-oauth2-resource-server' - Spring Boot OAuth2 Resource Server smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-parent-context' - Spring Boot parent context smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-profile' - Spring Boot profile smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-property-validation' - Spring Boot property validation smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-quartz' - Spring Boot Quartz smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-reactive-oauth2-client' - Spring Boot reactive OAuth 2 client smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-reactive-oauth2-resource-server' - Spring Boot reactive OAuth 2 resource server smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-rsocket' - Spring Boot RSocket smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-saml2-service-provider' - Spring Boot SAML 2 service provider smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-secure' - Spring Boot Security smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-secure-jersey' - Spring Boot secure Jersey smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-secure-webflux' - Spring Boot secure WebFlux smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-servlet' - Spring Boot Servlet smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-session' - Spring Boot Session smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-session-webflux' - Spring Boot Session WebFlux smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-simple' - Spring Boot Simple smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-test' - Spring Boot Test smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-test-nomockito' - Spring Boot Test no Mockito smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-testng' - Spring Boot TestNG smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-tomcat' - Spring Boot Tomcat smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-tomcat-jsp' - Spring Boot Tomcat JSP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-tomcat-multi-connectors' - Spring Boot Tomcat multi-connectors smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-tomcat-ssl' - Spring Boot Tomcat SSL smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-traditional' - Spring Boot traditional deployment smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-undertow' - Spring Boot Undertow smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-undertow-ssl' - Spring Boot Undertow SSL smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-war' - Spring Boot war smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-freemarker' - Spring Boot web FreeMarker smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-groovy-templates' - Spring Boot web Groovy Templates smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-jsp' - Spring Boot web JSP smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-method-security' - Spring Boot web method security smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-mustache' - Spring Boot web Mustache smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-secure' - Spring Boot web secure smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-secure-custom' - Spring Boot web secure custom smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-secure-jdbc' - Spring Boot web secure JDBC smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-static' - Spring Boot web static smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-web-ui' - Spring Boot web UI smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-webflux' - Spring Boot WebFlux smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-webflux-coroutines' - Spring Boot WebFlux coroutines smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-webservices' - Spring Boot Web Services smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-websocket-jetty' - Spring Boot WebSocket Jetty smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-websocket-tomcat' - Spring Boot WebSocket Tomcat smoke test
+          +--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-websocket-undertow' - Spring Boot WebSocket Undertow smoke test
+          \--- Project ':spring-boot-tests:spring-boot-smoke-tests:spring-boot-smoke-test-xml' - Spring Boot XML smoke test
+
+To see a list of the tasks of a project, run gradlew <project-path>:tasks
+For example, try running gradlew :spring-boot-project:tasks
+
+BUILD SUCCESSFUL in 6s
+1 actionable task: 1 executed
+
+A build scan was not published as you have not authenticated with server 'ge.spring.io'.

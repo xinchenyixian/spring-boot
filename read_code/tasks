@@ -1,0 +1,93 @@
+D:\project\spring-boot>gradlew tasks
+
+> Task :tasks
+
+------------------------------------------------------------
+Tasks runnable from root project 'spring-boot-build' - Spring Boot Build
+------------------------------------------------------------
+
+Default tasks: build
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project.
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+classes - Assembles main classes.
+clean - Deletes the build directory.
+intTestClasses - Assembles int test classes.
+jar - Assembles a jar archive containing the main classes.
+javadocJar - Assembles a jar archive containing the main javadoc.
+sourcesJar - Assembles a jar archive containing the main sources.
+testClasses - Assembles test classes.
+war - Generates a war archive with all the compiled classes, the web-app content and the libraries.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Documentation tasks
+-------------------
+asciidoctor - Generic task to convert AsciiDoc files and copy related resources
+asciidoctorPdf - Convert AsciiDoc files to PDF format
+javadoc - Generates Javadoc API documentation for the main source code.
+
+Gradle Enterprise tasks
+-----------------------
+buildScanPublishPrevious - Publishes the data captured by the last build.
+provisionGradleEnterpriseAccessKey - Provisions a new access key for this build environment.
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in root project 'spring-boot-build'.
+dependencies - Displays all dependencies declared in root project 'spring-boot-build'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'spring-boot-build'.
+help - Displays a help message.
+javaToolchains - Displays the detected java toolchains. [incubating]
+outgoingVariants - Displays the outgoing variants of root project 'spring-boot-build'.
+projects - Displays the sub-projects of root project 'spring-boot-build'.
+properties - Displays the properties of root project 'spring-boot-build'.
+tasks - Displays the tasks runnable from root project 'spring-boot-build' (some of the displayed tasks may belong to subprojects).
+
+Plugin development tasks
+------------------------
+pluginDescriptors - Generates plugin descriptors from plugin declarations.
+pluginUnderTestMetadata - Generates the metadata for plugin functional tests.
+validatePlugins - Validates the plugin by checking parameter annotations on task and artifact transform types etc.
+
+Publishing tasks
+----------------
+generateMetadataFileForDeploymentPublication - Generates the Gradle metadata file for publication 'deployment'.
+generateMetadataFileForMavenPublication - Generates the Gradle metadata file for publication 'maven'.
+generateMetadataFileForPluginMavenPublication - Generates the Gradle metadata file for publication 'pluginMaven'.
+generateMetadataFileForSpringBootPluginPluginMarkerMavenPublication - Generates the Gradle metadata file for publication 'springBootPluginPluginMarkerMaven'.
+generatePomFileForDeploymentPublication - Generates the Maven POM file for publication 'deployment'.
+generatePomFileForMavenPublication - Generates the Maven POM file for publication 'maven'.
+generatePomFileForPluginMavenPublication - Generates the Maven POM file for publication 'pluginMaven'.
+generatePomFileForSpringBootPluginPluginMarkerMavenPublication - Generates the Maven POM file for publication 'springBootPluginPluginMarkerMaven'.
+publish - Publishes all publications produced by this project.
+publishAllPublicationsToProjectRepository - Publishes all Maven publications produced by this project to the project repository.
+publishDeploymentPublicationToMavenLocal - Publishes Maven publication 'deployment' to the local Maven repository.
+publishDeploymentPublicationToProjectRepository - Publishes Maven publication 'deployment' to Maven repository 'project'.
+publishMavenPublicationToMavenLocal - Publishes Maven publication 'maven' to the local Maven repository.
+publishMavenPublicationToProjectRepository - Publishes Maven publication 'maven' to Maven repository 'project'.
+publishPluginMavenPublicationToMavenLocal - Publishes Maven publication 'pluginMaven' to the local Maven repository.
+publishPluginMavenPublicationToProjectRepository - Publishes Maven publication 'pluginMaven' to Maven repository 'project'.
+publishSpringBootPluginPluginMarkerMavenPublicationToMavenLocal - Publishes Maven publication 'springBootPluginPluginMarkerMaven' to the local Maven repository.
+publishSpringBootPluginPluginMarkerMavenPublicationToProjectRepository - Publishes Maven publication 'springBootPluginPluginMarkerMaven' to Maven repository 'project'.
+publishToMavenLocal - Publishes all Maven publications produced by this project to the local Maven cache.
+
+Verification tasks
+------------------
+check - Runs all checks.
+intTest - Runs integration tests.
+test - Runs the unit tests.
+
+To see all tasks and more detail, run gradlew tasks --all
+
+To see more detail about a task, run gradlew help --task <task>
+
+BUILD SUCCESSFUL in 5s
+1 actionable task: 1 executed
